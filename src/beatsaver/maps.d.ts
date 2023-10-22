@@ -100,6 +100,6 @@ export interface MapSearchOptions {
     minRating?: number,
     noodle?: boolean,
     tags?: string[],
-    to: string,
+    to?: string,
     verified?: boolean
 }

@@ -6,7 +6,6 @@ interface Owner {
     admin: boolean;
     curator: boolean;
     playlistUrl: string;
-    hash?: string;
 }
 
 interface Stats {

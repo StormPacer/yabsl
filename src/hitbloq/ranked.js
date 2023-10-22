@@ -21,7 +21,6 @@ async function maps(id, page = 0) {
 }
 
 exports.Ranked = {
-    get,
     id,
     maps,
 }
