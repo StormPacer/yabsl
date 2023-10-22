@@ -59,8 +59,8 @@ The library is fully typed so all of the objects and functions will display what
 
 ## Roadmap
 
-- [] BeatLeader support
-- [] Full AccSaber support
+- [ ] BeatLeader support
+- [ ] Full AccSaber support
 
 ## All yabsl functions
 
