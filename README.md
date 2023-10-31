@@ -59,7 +59,7 @@ The library is fully typed so all of the objects and functions will display what
 
 ## Roadmap
 
-- [ ] BeatLeader support
+- [x] BeatLeader support
 - [ ] Full AccSaber support
 
 ## All yabsl functions
@@ -129,9 +129,185 @@ Playlist search options:
 | to | string (date) |
 | verified | boolean |
 
+### BeatLeader
+
+#### Usable functions
+
+**Leaderboards:**
+- `id` - Get a leaderboard by it's id, more options explained later
+- `clanRanking` - Get the clean ranking on a leaderboard
+- `clanRankingGlobal` - Get the clan ranking on all leaderboards
+- `hash` - Get the leaderboard by hash
+- `get` - Get leaderboards by your query options, more options explained later
+- `getGruoped` - Same as above but grouped
+- `ranking` - Get the ranking of a certain map
+- `statistic` - Get the statistics of a certain leaderboard
+
+**Players:**
+- `id` - Get the player by their id
+- `discord` - Get the player by their discord id
+- `beatsaver` - Get the player by their beatsaver id
+- `get` - Get multiple players by your query, more options explained later
+- `event` - Get the event by it's id, more options explained later
+
+**Scores:**
+- `get` - Get the scores of a player, more options explained later
+- `getCompact` - Get the scores of a player but it's compact now, same options as `get`
+- `getValue` - Get the score value of a player on a certain map
+- `histogram` - Get the histogram of a player, options the same as `get` with the added `batch` property
+- `accGraph` - Get the accuracy graph of a player
+- `history` - Get the history of a player
+- `getPinnedScores` - Get the pinned scores of a player
+
+**Clans:**
+- `get` - Get the clans according to your query, more options explained later
+- `tag` - Get the clan according to your tag, more options explained later
+
+**Playlists:**
+- `get` - Get all the playlists
+- `id` - Get the playlist data according to it's id
+- `image` - Get the playlist image as a buffer or download it
+
+**Events:**
+- `get` - Get the events according to your query, more options explained later
+- `id` - Get an event by it's id
+
+#### Options
+
+**ALL OPTIONS ARE OPTIONAL!!!**
+
+Leaderboards id options:
+
+| Option | Type |
+| ------ | ---- |
+| page | number |
+| count | number |
+| sortBy | string |
+| order | number |
+| scoreStatus | number |
+| leaderboardContext | number |
+| countries | string |
+| search | string |
+| modifiers | string |
+
+Leaderboard get and getGroupped options:
+
+| Option | Type |
+| ------ | ---- |
+| page | number |
+| count | number |
+| sortBy | number |
+| order | number |
+| search | string |
+| type | number |
+| mode | string |
+| mapType | number |
+| allTypes | number |
+| mapRequirements | number |
+| allRequirements | number |
+| myType | number |
+| stars_from | string |
+| stars_to | string |
+| accrating_from | number |
+| accrating_to | number |
+| passrating_from | number |
+| passrating_to | number |
+| techrating_from | number |
+| techrating_to | number |
+| date_from | number |
+| date_to | number |
+
+Players get options:
+
+| Option | Type |
+| ------ | ---- |
+| sortBy | string |
+| page | number |
+| count | number |
+| search | string |
+| order | number |
+| countries | string |
+| mapTypes | string |
+| ppType | string |
+| leaderboardContext | number |
+| pp_range | string |
+| score_range | string |
+| platform | string |
+| role | string |
+| hmd | string |
+| clans | string |
+| activityPeriod | number |
+| banned | boolean |
+
+Player events options:
+
+| Option | Type |
+| ------ | ---- |
+| sortBy | string |
+| page | number |
+| count | number |
+| search | string |
+| order | number |
+| countries | string |
+
+Scores get options:
+
+| Option | Type |
+| ------ | ---- |
+| sortBy | string |
+| order | number |
+| page | number |
+| count | number |
+| search | string |
+| diff | string |
+| mode | string |
+| requirements | number |
+| scoreStatus | number |
+| leaderboardContext | number |
+| type | string |
+| modifiers | string |
+| stars_from | number |
+| stars_to | number |
+| time_from | number |
+| time_to | number |
+| eventId | number |
+
+Clans get options:
+
+| Option | Type |
+| ------ | ---- |
+| page | number |
+| count | number |
+| search | string |
+| sort | string |
+| order | number |
+| type | string |
+| sortBy | string |
+
+Clan tag options:
+
+| Option | Type |
+| ------ | ---- |
+| page | number |
+| count | number |
+| search | string |
+| sort | string |
+| order | number |
+| capturedLeaderboards | string |
+
+Events get options:
+
+| Option | Type |
+| ------ | ---- |
+| page | number |
+| count | number |
+| sortBy | string |
+| search | string |
+| order | number |
+
 ### ScoreSaber
 
-#### Usable function
+#### Usable functions
 
 **Leaderboards:**
 - `get` - Get leaderboards by a text query, more options explained later
@@ -211,3 +387,9 @@ Scores by hash options:
 **Players:**
 - `get` - Get all the players on AccSaber
 - `id` - Get a certain player and choose which category to look up their stats for
+
+**Maps:**
+- `get` - Get all ranked maps
+- `id` - Get the map with a certain leaderboard id
+- `category` - Get all ranked maps of a certain category
+- `playlist` - Get or download a playlist of all ranked maps

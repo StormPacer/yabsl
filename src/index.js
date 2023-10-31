@@ -34,8 +34,26 @@ exports.HitBloq = {
 
 const { LeaderboardsAS } = require('./accsaber/leaderboards')
 const { PlayersAS } = require('./accsaber/players')
+const { MapsAS } = require('./accsaber/maps')
 
 exports.AccSaber = {
     leaderboards: LeaderboardsAS,
-    players: PlayersAS
+    players: PlayersAS,
+    maps: MapsAS
+}
+
+const { Clans } = require("./beatleader/clans");
+const { LeaderboardsBL } = require("./beatleader/leaderboards");
+const { PlayersBL } = require("./beatleader/players");
+const { ScoresBL } = require("./beatleader/scores");
+const { PlaylistsBL } = require("./beatleader/playlists");
+const { Events } = require("./beatleader/events");
+
+exports.BeatLeader = {
+    clans: Clans,
+    leaderboards: LeaderboardsBL,
+    players: PlayersBL,
+    scores: ScoresBL,
+    playlists: PlaylistsBL,
+    events: Events
 }

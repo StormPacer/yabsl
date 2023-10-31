@@ -14,6 +14,21 @@ import { Badges, Scores } from "./hitbloq/users"
 
 import { PlayerAS } from "./accsaber/leaderboards"
 
+import { ClanGetOptions, ClanTagOptions, Clans } from "./beatleader/clans"
+import { BLLeaderboard, BLLeaderboardOptions } from "./beatleader/leaderboards"
+import { BLLeaderboardId, BLLeaderboardIdOptions } from "./beatleader/leaderboardId"
+import { BLLeaderboardClan } from "./beatleader/leaderboardClan"
+import { BLLeaderboardRanking } from "./beatleader/leaderboardRanking"
+import { BLLeaderboardStats } from "./beatleader/leaderboardStats"
+import { BLPlayer, BLPlayerOptions } from "./beatleader/players"
+import { BLPlayers, BLPlayersEventsOptions, BLPlayersOptions } from "./beatleader/playersGet"
+import { BLAccGraph, BLHistogramOptions, BLScores, BLScoresCompact, BLScoresHistory, BLScoresOptions } from "./beatleader/scores"
+import { BLPinnedScore } from "./beatleader/scoresPinned"
+import { BLPlaylist, BlFullPlaylist } from "./beatleader/playlists"
+import { BLEvent } from "./beatleader/events"
+import { BLEventOptions, BLEvents } from "./beatleader/eventsGet"
+import { MapsGetAS, PlaylistAS } from "./accsaber/maps"
+
 export namespace BeatSaver {
     export namespace maps {
         function id(id: string): Promise<BSMap>
@@ -101,5 +116,59 @@ export namespace AccSaber {
     export namespace players {
         function get(): Promise<PlayerAS[]>
         function id(id: string, type?: "overall" | "standard" | "true" | "tech"): Promise<PlayerAS>
+    }
+
+    export namespace maps {
+        function get(): Promise<MapsGetAS[]>
+        function id(id: string): Promise<MapsGetAS>
+        function category(category: "standard" | "true" | "tech"): Promise<MapsGetAS[]>
+        function playlist(download?: boolean, name?: string, location?: string): Promise<PlaylistAS | void>
+    }
+}
+
+export namespace BeatLeader {
+    export namespace clans {
+        function get(options?: ClanGetOptions): Promise<Clans>
+        function tag(id: string, options?: ClanTagOptions): Promise<Clans>
+    }
+
+    export namespace leaderboards {
+        function get(options?: BLLeaderboardOptions): Promise<BLLeaderboard>
+        function getGrouped(options?: BLLeaderboardOptions): Promise<BLLeaderboard>
+        function id(id: string, options?: BLLeaderboardIdOptions): Promise<BLLeaderboardId>
+        function hash(hash: string): Promise<BLLeaderboardId>
+        function clanRanking(leaderboardId: string, clanId: string, page?: number, count?: number): Promise<BLLeaderboardClan>
+        function clanRankingGlobal(clanId: string, page?: number, count?: number): Promise<BLLeaderboardClan>
+        function ranking(id: string): Promise<BLLeaderboardRanking>
+        function statistic(id: string): Promise<BLLeaderboardStats>
+    }
+
+    export namespace players {
+        function id(id: string, options?: BLPlayerOptions): Promise<BLPlayer>
+        function discord(id: string): Promise<BLPlayer>
+        function beatsaver(id: string): Promise<BLPlayer>
+        function get(options?: BLPlayersOptions): Promise<BLPlayers>
+        function event(id: string, options?: BLPlayersEventsOptions): Promise<BLPlayers>
+    }
+
+    export namespace scores {
+        function get(id: string, options?: BLScoresOptions): Promise<BLScores>;
+        function getCompact(id: string, options?: BLScoresOptions): Promise<BLScoresCompact>;
+        function getValue(id: string, hash: string, difficulty: string, mode: string): Promise<number>;
+        function histogram(id: string, options?: BLHistogramOptions): Promise<string>;
+        function accGraph(id: string, leaderboardContext?: number): Promise<BLAccGraph[]>;
+        function history(id: string, count?: number, leaderboardContext?: number): Promise<BLScoresHistory[]>;
+        function pinnedScores(id: string, leaderboardContext?: number): Promise<BLPinnedScore[]>;
+    }
+
+    export namespace playlists {
+        function get(): Promise<BLPlaylist[]>
+        function id(id: string): Promise<BlFullPlaylist>
+        function image(playlistId: string, download?: boolean, name?: string, location?: string): Promise<Buffer | void>
+    }
+
+    export namespace events {
+        function get(options?: BLEventOptions): Promise<BLEvents>
+        function id(id: string): Promise<BLEvent>
     }
 }

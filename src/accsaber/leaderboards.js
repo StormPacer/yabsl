@@ -32,7 +32,7 @@ async function standardAcc() {
     } catch (e) {
         throw new Error(e);
     }
-}
+} 
 
 exports.LeaderboardsAS = {
     overallAcc,
