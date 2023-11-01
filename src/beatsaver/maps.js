@@ -85,7 +85,8 @@ async function search(sortOrder = "Latest", q = "", page = 0, options = {}) {
         for (let key in options) {
             query += `&${key}=${options[key]}`;
         };
-        query += `&page=${sortOrder}`;
+        query += `&sortOrder=${sortOrder}`;
+        query += `&page=${page}`;
         query += `&q=${q}`;
 
         query = query.replace("&", "?");

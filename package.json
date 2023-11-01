@@ -1,6 +1,6 @@
 {
   "name": "yabsl",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Yet another Beat Saber library. A wrapper for all major Beat Saber services.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
